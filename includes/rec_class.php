@@ -12,7 +12,7 @@ Class Check extends Connection
 				if($infos['month']!=NULL && $infos['day']!=NULL && $infos['txtyear']!=NULL && $infos['txtname']!=NULL && $infos['txtmi']!=NULL && $infos['txtlname']!=NULL && $infos['txtaddress']!=NULL && $infos['gender']!=NULL && $infos['txtcontact']!=NULL && $infos['txtguardian']!=NULL && $infos['txtdate']!=NULL)
 				{
 					
-					if($infos['month'] == 'September' && $infos['day']<=30 || $infos['month'] == 'April' && $infos['day']<=30 || $infos['month'] == 'June' && $infos['day']<=30 || $infos['month'] == 'November' && $infos['day']<=30 || $infos['month'] == 'February' && $infos['day']<=29   )
+					if($infos['month'] == 'September' && $infos['day']<=30 || $infos['month'] == 'April' && $infos['day']<=30 || $infos['month'] == 'June' && $infos['day']<=30 || $infos['month'] == 'November' && $infos['day']<=30 || $infos['month'] == 'February' && $infos['day']<=29 || $infos['month'] == 'January' && $infos['day']<=31 || $infos['month'] == 'March' && $infos['day']<=31 || $infos['month'] == 'May' && $infos['day']<=31 || $infos['month'] == 'July' && $infos['day']<=31 || $infos['month'] == 'August' && $infos['day']<=31 || $infos['month'] == 'October' && $infos['day']<=31  || $infos['month'] == 'December' && $infos['day']<=31)
 						{
 							$bdate = $this->escape_string($infos['month'])." ".$this->escape_string($infos['day'])." ".$this->escape_string($infos['txtyear']);
 							$update = "
