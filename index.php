@@ -6,7 +6,7 @@
 <script type="text/javascript" src="library/jquery.js"></script>
 <script type="text/javascript" src="library/jquery-ui.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function(){	
 	$("#search").click(function(){
 	
 		$(function() {
@@ -20,8 +20,6 @@ $(document).ready(function(){
 		});
 	});
 });
-
-
 </script>
 </head>
 <body>
@@ -30,6 +28,7 @@ $(document).ready(function(){
 	</div>
 <?php include ("templates/style.css"); ?>
 <?php include ("templates/template.php"); ?>
+<?php include ("templates/navigation.php"); ?>
 
 
 
@@ -47,7 +46,7 @@ $(document).ready(function(){
 		height:159px;
 		padding:14px;
 		position:absolute;
-		left:200px;
+		left:500px;
 		top:1px;
 		}
 		
@@ -144,6 +143,10 @@ $(document).ready(function(){
 			<label>Search By
 			</label>
 			<div class = "radioFields">
+				  <div>
+	            	<input name="rad_id" type="radio" id="radio7" class = "inp_radio" value="4"  <?php if($_REQUEST['rad_id'] == "4" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
+	               	<span>Mobile Network</span> 
+	            </div>
 				 <div>
 	            	<input name="rad_id" type="radio" id="radio6" class = "inp_radio" value="3"  <?php if($_REQUEST['rad_id'] == "3" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
 	               	<span>Address</span> 
