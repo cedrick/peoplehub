@@ -5,9 +5,10 @@
 <link rel="stylesheet" href="library/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="library/jquery.js"></script>
 <script type="text/javascript" src="library/jquery-ui.min.js"></script>
+<script type="text/javascript" src="_template/jquery/datepicker.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#but").click(function(){
+$(document).ready(function(){	
+	$("#search").click(function(){
 	
 		$(function() {
 			// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
@@ -19,9 +20,9 @@ $(document).ready(function(){
 			});
 		});
 	});
+	$('#txtsdate').datepicker({ dateFormat: 'mm/dd/yy' });
+	$('#txtedate').datepicker({ dateFormat: 'mm/dd/yy' });
 });
-
-
 </script>
 </head>
 <body>
@@ -30,6 +31,7 @@ $(document).ready(function(){
 	</div>
 <?php include ("templates/style.css"); ?>
 <?php include ("templates/template.php"); ?>
+<?php include ("templates/navigation.php"); ?>
 
 
 
@@ -47,7 +49,7 @@ $(document).ready(function(){
 		height:159px;
 		padding:14px;
 		position:absolute;
-		left:200px;
+		left:500px;
 		top:1px;
 		}
 		
@@ -91,6 +93,8 @@ $(document).ready(function(){
 		margin:2px 0 20px 10px;
 		border-top-left-radius:5px;
 		border-bottom-left-radius:5px;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px;
 		}
 		#stylized button{
 		clear:both;
@@ -105,9 +109,11 @@ $(document).ready(function(){
 		font-weight:bold;
 		position:absolute;
 		right:-9px;
-		top:15px;
+		top:120px;
 		border-top-right-radius:5px;
 		border-bottom-right-radius:5px;
+		border-top-left-radius:5px;
+		border-bottom-left-radius:5px;
 		}
 		
 		#search:hover{
@@ -127,37 +133,38 @@ $(document).ready(function(){
 		}
 		
 		#but{
-			width:89px;
-			height:25px;
+			width:50px;
+			height:26px;
+			position:absolute;
+			right:-9px;
+			top:15px;
 		}
 	</style>
 	<div id="stylized" class="myform">
 		<form id="form1" name="form1" method="post" action="">
 			
-			<input type="text" name="txtsearch" id="txtsearch" class = "inp_text" value="<?php echo $search=trim($_POST['txtsearch']);?> " />
-			<div id = "but">
+			<table>
+				<tr>
+					<td>
+						<font size = "2">Start Date:</font>
+					</td>
+					<td>
+						<input type="text" name="txtsdate" id="txtsdate" class = "inp_text" value="<?php echo $sdate=trim($_POST['txtsdate']);?> " />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<font size = "2">End Date:</font>
+					</td>
+					<td>
+						<input type="text" name="txtedate" id="txtedate" class = "inp_text" value="<?php echo $edate=trim($_POST['txtedate']);?> " />
+					</td>
+				</tr>
+			</table>
+			
 					<button type="submit" name="search" id="search"><img src="templates/images/search.png" width="46" height="24" /></button>
-			</div>
-			<label>Search By
-			</label>
-			<div class = "radioFields">
-				 <div>
-	            	<input name="rad_id" type="radio" id="radio6" class = "inp_radio" value="3"  <?php if($_REQUEST['rad_id'] == "3" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
-	               	<span>No. of Attendees</span> 
-	            </div>
-				 <div>
-	            	<input name="rad_id" type="radio" id="radio6" class = "inp_radio" value="3"  <?php if($_REQUEST['rad_id'] == "3" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
-	               	<span>Address</span> 
-	            </div>
-	           <div>
-	            	<input name="rad_id" type="radio" id="radio5" class = "inp_radio" value="2"  <?php if($_REQUEST['rad_id'] == "2" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
-	               	<span>Name</span> 
-	            </div>
-	            <div>
-	            	<input name="rad_id" type="radio" id="radio4" class = "inp_radio" value="1"  <?php if($_REQUEST['rad_id'] == "1" || $_REQUEST['rad_id'] == NULL ) echo "checked";  ?>/>
-	               	<span>Birthday</span> 
-	            </div>
-			</div>
+		
+			
 			<div class="spacer"></div>
 		</form>
 	</div>
@@ -166,16 +173,14 @@ $(document).ready(function(){
 <?php
   if(isset($_POST['search']))
 	  { 
-			$search=trim($_POST['txtsearch']);
-			$rad_id=$_POST['rad_id'];
-			//$rad_sort=$_POST['rad_sort'];
+			
 			include ("includes/rec_class.php");
 			$check= new Check();
-			$check->main($search,$rad_id);
+			$check->get_attendees($sdate,$edate);
 			//$check->search_logs($search);
 	  }
 ?>
-<br />
+
 
 </div>  
 <?php include ("templates/footer.php"); ?>
