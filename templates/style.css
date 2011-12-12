@@ -11,12 +11,25 @@ body {
 				 height:295px;
 			 }
 .logo_box{ 
+	      		 background-image:url('templates/images/people_hub.png');
 	      		 width:164px;
 				 height:128px;
+				 position:absolute;
+				 left:300px;
+				 top:17px;
+				 border-top-right-radius:5px;
+				 border-bottom-right-radius:5px;
+				 border-top-left-radius:5px;
+				 border-bottom-left-radius:5px;
 				
 		}
 
 
+.but_prnt{
+			margin-left: 1140px;
+			width:50px;
+			height:22px;	
+}
 
 .logout{ 
 				margin-left: 20px;
@@ -82,6 +95,9 @@ body {
 			border-bottom: 1px solid #A9010C;
 			list-style:none;
 			width:130px;
+			position:absolute;
+			left:50px;
+			top:-22px;
 	}
 	 
 li{

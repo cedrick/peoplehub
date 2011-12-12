@@ -14,40 +14,31 @@ a:active {
 </style>
 <ul>
      <li> 
-      <a href="admin_out.php">
+      <a href="index.php">
        <strong>
          <font color="#FFFBF0"face="Arial Rounded MT Bold" size="3">
-          Sign Out
+          Home
          </font>
        </strong>
 			</a>
       </li>
     <li> 
-     <a href="register.php">
+     <a href="attend.php">
       <strong>
         <font color="#FFFBF0" face="Arial Rounded MT Bold" size="3">
-           Sign Up
+          Attendance
         </font>
       </strong>
      </a>
     </li>
      <li> 
-      <a href="admin_portal.php">
+      <a href="registration.php">
         <strong>
           <font color="#FFFBF0" face="Arial Rounded MT Bold" size="3">
-            View User
+            Registration
           </font>
         </strong>
       </a>
      </li> 
-     <li>     
-      <a href="admin_logs.php">
-       <strong>
-         <font color="#FFFBF0" face="Arial Rounded MT Bold" size="3">
-           View Logs
-         </font>
-       </strong>
-      </a>
-     </li> 
-     
+
 </ul>
