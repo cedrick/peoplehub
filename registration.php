@@ -32,6 +32,7 @@ $(document).ready(function(){
 	</div>
 <?php include ("templates/style.css"); ?>
 <?php include ("templates/template.php"); ?>
+<?php include ("templates/navigation.php"); ?>
 
 
 
@@ -49,7 +50,7 @@ $(document).ready(function(){
 		height:159px;
 		padding:14px;
 		position:absolute;
-		left:200px;
+		left:500px;
 		top:1px;
 		}
 		
@@ -107,7 +108,7 @@ $(document).ready(function(){
 		font-weight:bold;
 		position:absolute;
 		right:150px;
-		top:280px;
+		top:283px;
 		}
 		
 		#search:hover{
@@ -178,7 +179,10 @@ $(document).ready(function(){
 						Contact#:
 					</td>
 					<td>
-						<input type="text" name="txtcontact" id="txtcontact"  value="<?php echo $info['txtcontact']; echo $_POST['txtcontact'];?> " />		
+						<input  maxlength="4" size = "4" type="text" name="txtarea" id="txtarea"  value="<?php echo $info['txtarea']; echo $_POST['txtarea'];?> " />		
+	
+						<input maxlength="7" size = "7" type="text" name="txtcontact" id="txtcontact"  value="<?php echo $info['txtcontact']; echo $_POST['txtcontact'];?> " />		
+						<font color = "#54AADC" size = "2">Code(0916)+7digit numbers</font>
 					</td>
 				</tr>
 				<tr>
@@ -246,7 +250,7 @@ $(document).ready(function(){
 							</select>
 							
 							<input size = "5" type="text" name="txtyear" id="txtyear"  value="<?php echo $info['txtyear']; echo $_POST['txtyear'];?> " />		
-							<font color = "#A0A0A4">(m/d/y)</font>
+							<font color = "#54AADC" size = "2">(m/d/y)</font>
 						</td>
 				</tr>
 				<tr>
@@ -270,12 +274,13 @@ $(document).ready(function(){
 						<button type="submit" name="register" id="register"></button>
 					</td>
 					<td>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="registration.php">Reset</a>
 					</td>
 				</tr>
 			</table>
 	</div>
+	<br><br>
 <?php
   if(isset($_POST['register']))
 	  { 
